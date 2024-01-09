@@ -1,3 +1,4 @@
+let acciones=[]
 function sumar() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -10,6 +11,7 @@ function sumar() {
         resultado = n1 + n2 + n3;
     alert("el resultado es: " + resultado)
     }
+    acciones.push("sumar")
 }
 function restar() {
     let n1 = parseInt(document.getElementById("n1").value);
@@ -18,6 +20,7 @@ function restar() {
     let resultado = 0;
     resultado = n1 - n2 - n3;
     alert("el resultado es: " + resultado)
+    acciones.push("restar")
 }
 function multiplicar() {
     let n1 = parseInt(document.getElementById("n1").value);
@@ -26,6 +29,7 @@ function multiplicar() {
     let resultado = 0;
     resultado = n1 * n2 * n3;
     alert("el resultado es: " + resultado)
+    acciones.push("multiplicar")
 }
 function dividir() {
     let n1 = parseInt(document.getElementById("n1").value);
@@ -40,6 +44,7 @@ function dividir() {
         alert("el resultado es: " + resultado)
  
     }
+    acciones.push("dividir")
 }
 function mensaje(){
     let n4=prompt("Digite un número mayor a 0");
@@ -55,4 +60,19 @@ function mensaje(){
     alert(resultado);
  
     }
+}
+function moves() {
+    let result = "<table>";
+    for (const element of acciones) {
+        result += "<tr><td>" + element + "</td></tr>";
+      }
+      result += "</table>";
+    let getid=document.getElementById("show-acciones")
+    getid.innerHTML=result
+}
+function search(){    
+    let dato=document.getElementById("buscar").value.toLowerCase();
+    let items = acciones.filter(accion => accion.toLowerCase() === dato);
+    let cantidad=items.length
+    alert("La operación " + dato +" se ha realizado " + cantidad + " veces");
 }
