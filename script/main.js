@@ -1,4 +1,7 @@
+
 let acciones=[]
+let nombre;
+let user;
 function sumar() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -13,6 +16,7 @@ function sumar() {
     }
     acciones.push("sumar")
 }
+
 function restar() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -22,6 +26,7 @@ function restar() {
     alert("el resultado es: " + resultado)
     acciones.push("restar")
 }
+
 function multiplicar() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -31,6 +36,7 @@ function multiplicar() {
     alert("el resultado es: " + resultado)
     acciones.push("multiplicar")
 }
+
 function dividir() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -46,6 +52,7 @@ function dividir() {
     }
     acciones.push("dividir")
 }
+
 function mensaje(){
     let n4=prompt("Digite un número mayor a 0");
     let result=parseInt(n4);
@@ -61,6 +68,7 @@ function mensaje(){
  
     }
 }
+
 function moves() {
     let result = "<table>";
     for (const element of acciones) {
@@ -70,9 +78,25 @@ function moves() {
     let getid=document.getElementById("show-acciones")
     getid.innerHTML=result
 }
+
 function search(){    
     let dato=document.getElementById("buscar").value.toLowerCase();
     let items = acciones.filter(accion => accion.toLowerCase() === dato);
     let cantidad=items.length
     alert("La operación " + dato +" se ha realizado " + cantidad + " veces");
 }
+
+
+function perfil(){
+   nombre= prompt("ingrese su nombre");
+   user = prompt('ingrese su nick');
+}
+
+function info(){
+    const object = {
+        name:nombre,
+        nick: user,
+    }  
+    alert("hola "+object.name + " tu nick es: "+ object.nick);  
+}
+
