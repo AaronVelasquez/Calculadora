@@ -6,6 +6,7 @@
     <title>Calculadora</title>
 </head>
 <body>
+    <div id="alertas" style="display: none;"></div>
     <form method="get">
         <label for="n1">Ingrese un número:</label>
         <input type="number" id="n1">
@@ -13,8 +14,15 @@
         <input type="number" id="n2">
         <label for="n3">Ingrese otro número:</label>
         <input type="number" id="n3">
-        <label for="buscar">Buscar operación</label>
-        <input type="text" id="buscar">
+        <label for="seleccion">Seleccione una operación</label>
+        <div class="select">
+        <div class="select">
+            <select id="seleccion" name="b">
+                <option value="suma">Suma</option>
+                <option value="resta">Resta</option>
+                <option value="multiplicación">Multiplicación</option>
+                <option value="dividir">División</option>
+            </select>
         <div>
             <button type="button" onclick="sumar()">Sumar</button>
             <button type="button" onclick="restar()">Restar</button>
