@@ -139,4 +139,33 @@ function info(){
     }  
     alert("hola "+object.name + " tu nick es: "+ object.nick);  
 }
-    
+async function frases() {
+    try {
+        const response = await fetch("https://api.chucknorris.io/jokes/random");
+        if (!response.ok) {
+            Swal.fire({
+                title: 'Error!',
+                text: "No hay frases para ti",
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+       
+        const data = await response.json();
+        const humor = data.value;
+       
+        await Swal.fire({
+            title: 'Frases!',
+            text: humor,
+            icon: 'info',
+            confirmButtonText: 'Cool'
+        });
+    } catch (error) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Por favor, inténtalo de nuevo más tarde.',
+            icon: 'error',
+            confirmButtonText: 'Entendido'
+        });
+    }
+}
